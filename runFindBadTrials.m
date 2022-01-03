@@ -13,6 +13,7 @@ segmentTheseIndices = 1;
 gridType = 'EEG';
 capType = 'actiCap64';
 badElectrodes0 = 65:80;
+ImpedanceTag = '_Impedance_start';
 protocolNameList = [{'EO1'} {'EC1'} {'G1'} {'M1'} {'G2'} {'EO2'} {'EC2'} {'M2'}];
 
 for i=1:length(segmentTheseIndices)
@@ -21,6 +22,6 @@ for i=1:length(segmentTheseIndices)
     
     for j=1:length(protocolNameList)
         protocolName = protocolNameList{j}; 
-        [badTrials,allBadTrials,badTrialsUnique,badElecs,totalTrials,slopeValsVsFreq] = findBadTrialsWithEEG(subjectName,expDate,protocolName,folderSourceString,gridType,capType,badElectrodes0);
+        [badTrials,allBadTrials,badTrialsUnique,badElecs,totalTrials,slopeValsVsFreq] = findBadTrialsWithEEG(subjectName,expDate,protocolName,folderSourceString,gridType,capType,impedanceTag,badElectrodes0);
     end
 end
